@@ -15,6 +15,12 @@ pipeline {
             steps {
                 sh 'mvn test' 
             }
+	stages {
+        stage('Release') {
+            steps {
+                sh 'mvn --batch-mode release:prepare'
+            }
+        }
             post {
                 always {
                     junit 'target/surefire-reports/*.xml' 
