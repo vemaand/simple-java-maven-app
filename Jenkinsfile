@@ -15,6 +15,7 @@ pipeline {
             steps {
                 sh 'mvn test' 
             }
+	}
         stage('Release') {
             steps {
                 sh 'mvn --batch-mode release:prepare'
